@@ -8,14 +8,14 @@ before_install:
 script:   
        - docker run -e CI=true b3525a6c14b2/react-test npm test  
 after_success:
-        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-        - docker build -t b3525a6c14b2/multi-client ./client && docker push b3525a6c14b2:multi-client 
-        - docker build -t b3525a6c14b2/multi-nginx ./nginx && docker push b3525a6c14b2:multi-nginx
-        - docker build -t b3525a6c14b2/multi-server ./server && docker push b3525a6c14b2:multi-server
-        - docker build -t b3525a6c14b2/multi-worker ./worker && docker push b3525a6c14b2:multi-worker
+        
+        - docker build -t b3525a6c14b2/multi-client ./client  
+        - docker build -t b3525a6c14b2/multi-nginx ./nginx 
+        - docker build -t b3525a6c14b2/multi-server ./server
+        - docker build -t b3525a6c14b2/multi-worker ./worker 
           
-          ## - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-          ##        - docker push b3525a6c14b2:multi-client 
-          ## - docker push b3525a6c14b2:multi-nginx 
-          ## - docker push b3525a6c14b2:multi-server  
-          ## - docker push b3525a6c14b2:multi-worker 
+           - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+           - docker push b3525a6c14b2:multi-client 
+           - docker push b3525a6c14b2:multi-nginx 
+           - docker push b3525a6c14b2:multi-server  
+           - docker push b3525a6c14b2:multi-worker 
