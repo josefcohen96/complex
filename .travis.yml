@@ -15,7 +15,7 @@ after_success:
         - docker build -t b3525a6c14b2/multi-worker ./worker 
           
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-        - docker push b3525a6c14b2/multi-client:latest 
-        - docker push b3525a6c14b2/multi-nginx:latest
-        - docker push b3525a6c14b2/multi-server:latest
-        - docker push b3525a6c14b2/multi-worker:latest
+        - sudo docker push b3525a6c14b2/multi-client:latest 
+        - sudo docker push b3525a6c14b2/multi-nginx:latest
+        - sudo docker push b3525a6c14b2/multi-server:latest
+        - sudo docker push b3525a6c14b2/multi-worker:latest
